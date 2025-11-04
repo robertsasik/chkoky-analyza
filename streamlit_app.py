@@ -52,12 +52,12 @@ with tab1:
 
     # --- Farby podľa druhu vlastníctva ---
     farby = {
-        "Súkromné": "#1f77b4",
-        "Obecné": "#ff7f0e",
-        "Štátne": "#2ca02c",
-        "Cirkvené": "#d62728",
-        "Pozemkové spoločenstvá": "#9467bd",
-        "Neznámy vlastník": "#8c564b"
+        "súkromné a bez LV": "#626BFF", 
+        "obecné a mestské": "#F4E129",
+        "štátne": "#00CE94",
+        "cirkvené": "#88BCE1",  
+        "spoločenstvá": "#FEA062",
+        "zmiešané": "#F1553C"
     }
 
     # --- Výber typu grafu ---
