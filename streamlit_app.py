@@ -83,7 +83,8 @@ with tab1:
         fig.update_layout(
             showlegend=True,
             legend_title_text="Druh vlastníctva",
-            title_x=0.5
+            title_x=0.5,
+            width=800
         )
         st.plotly_chart(fig, use_container_width=True)
 
@@ -106,7 +107,7 @@ with tab1:
             yaxis_title="Výmera (ha)",
             showlegend=False,
             title_x=0.5,
-            width=800,   # pevná šírka grafu
+            width=800   # pevná šírka grafu
         )
 
         # 🔹 Zarovnanie na stred pomocou troch stĺpcov
