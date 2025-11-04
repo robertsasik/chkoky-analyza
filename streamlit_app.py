@@ -21,6 +21,7 @@ with row1_col1:
     
 with row1_col2:
     st.write("## Chránená krajinná oblasť Kysuce")
+    st.write("### Program starostlivosti")
 
 ########################### koniec - prvý riadok a dva stĺpce ###########################
 
