@@ -36,7 +36,7 @@ with tab1:
     # --- Načítanie dát ---
     df = pd.read_excel(
         r"data/analyza_vlastnictvo_drp2.xlsx",
-        header=1,
+        header=0,
     )
 
     # Nastavenie indexu na 'Druh vlastníctva'
