@@ -1,0 +1,8 @@
+# .streamlit/config.toml
+
+[theme]
+primaryColor="#09aa3c"
+backgroundColor="#ffffff" # biela
+secondaryBackgroundColor="#f0f2f6" # jemná šedá
+textColor="#303133" # tmavá šedá/čierna
+font="sans serif"
