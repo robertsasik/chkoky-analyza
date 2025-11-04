@@ -34,7 +34,7 @@ tab1, tab2, tab3, tab4 = st.tabs(["📊 Analýza vlastníckych vzťahov",
 with tab1:
     # --- Načítanie dát ---
     df = pd.read_excel(
-        r"/workspaces/chkoky-analyza/data/analyza_vlastnictvo_drp2.xlsx",
+        r"data/analyza_vlastnictvo_drp2.xlsx",
         header=0,
     )
 
