@@ -55,7 +55,7 @@ with tab1:
         "súkromné a bez LV": "#626BFF", 
         "obecné a mestské": "#F4E129",
         "štátne": "#00CE94",
-        "cirkvené": "#88BCE1",  
+        "cirkevné": "#88BCE1",  
         "spoločenstvá": "#FEA062",
         "zmiešané": "#F1553C"
     }
