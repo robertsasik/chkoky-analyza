@@ -123,7 +123,7 @@ with tab2:
 
     # Vlož mapu ako iframe
     iframe_html = f"""
-        <iframe src="{map_url}" width="100%" height="100%" style="border:none;"></iframe>
+        <iframe src="{map_url}" width="100%" height="500" style="border:none;"></iframe>
         """
     components.html(iframe_html, height=500, scrolling=False)
        
