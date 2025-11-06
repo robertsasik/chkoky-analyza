@@ -28,9 +28,9 @@ with row1_col2:
 
 
 tab1, tab2, tab3, tab4 = st.tabs(["📊 Analýza vlastníckych vzťahov", 
-                            "🗺️ Mapa vlastníckych vzťahov", 
-                            "🗺️ Mapa ekologicko-funkčné plochy",
-                            "🗺️ Mapa menežmentové opatrenia"])
+                            "🗺️ Vlastnícke vzťahy", 
+                            "🗺️ Ekologicko-funkčné plochy",
+                            "🗺️ Menežmentové opatrenia"])
 
 with tab1:
     # --- Načítanie dát ---
