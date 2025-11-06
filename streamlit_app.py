@@ -120,7 +120,7 @@ with tab2:
     st.subheader("🗺️ Vlastnícke vzťahy")
 
     # URL k tvojej GitHub Pages mape
-    map_url = "https://mapky.github.io/mapa_vl_vztahy/#10/49.3599/18.6529"
+    map_url = "https://mapky.github.io/mapa_vl_vztahy/#10/49.3682/18.6386"
 
     # Vlož mapu ako iframe
     iframe_html = f"""
@@ -131,7 +131,7 @@ with tab2:
 #Tlačidlo na otvorenie mapy v novom okne       
     st.markdown(
     """
-    <a href="https://mapky.github.io/mapa_vl_vztahy/#10/49.3599/18.6529" target="_blank">
+    <a href="https://mapky.github.io/mapa_vl_vztahy/#10/49.3682/18.6386" target="_blank">
         <button style="
             background-color:#2b8a3e;
             color:white;
