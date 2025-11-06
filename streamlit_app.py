@@ -30,7 +30,7 @@ with row1_col2:
 tab1, tab2, tab3, tab4,  tab5 = st.tabs(["📊 Analýza vlastníckych vzťahov", 
                                          "🗺️ Vlastnícke vzťahy", 
                                          "🗺️ Ekologicko-funkčné plochy",
-                                         "🗺️ Menežmentové opatrenia,"
+                                         "🗺️ Menežmentové opatrenia",
                                          "🗺️ Biotopy"])
 
 with tab1:
