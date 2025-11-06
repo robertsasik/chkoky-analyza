@@ -27,10 +27,11 @@ with row1_col2:
 
 
 
-tab1, tab2, tab3, tab4 = st.tabs(["📊 Analýza vlastníckych vzťahov", 
-                            "🗺️ Vlastnícke vzťahy", 
-                            "🗺️ Ekologicko-funkčné plochy",
-                            "🗺️ Menežmentové opatrenia"])
+tab1, tab2, tab3, tab4,  tab5 = st.tabs(["📊 Analýza vlastníckych vzťahov", 
+                                         "🗺️ Vlastnícke vzťahy", 
+                                         "🗺️ Ekologicko-funkčné plochy",
+                                         "🗺️ Menežmentové opatrenia,"
+                                         "🗺️ Biotopy"])
 
 with tab1:
     # --- Načítanie dát ---
@@ -175,11 +176,11 @@ with tab3:
     unsafe_allow_html=True
 )
 
-with tab4:
-    st.subheader("🗺️ Menežmentové opatrenia")
+with tab5:
+    st.subheader("🗺️ Biotopy")
 
     # URL k tvojej GitHub Pages mape
-    map_url = "https://mapky.github.io/mapa-menezment/#10/49.3682/18.6386"
+    map_url = "https://mapky.github.io/mapa-biotopy/#10/49.3682/18.6386"
 
     # Vlož mapu ako iframe
     iframe_html = f"""
@@ -189,7 +190,7 @@ with tab4:
         #Tlačidlo na otvorenie mapy v novom okne       
     st.markdown(
     """
-    <a href="https://mapky.github.io/mapa-menezment/#10/49.3682/18.6386" target="_blank">
+    <a href="https://mapky.github.io/mapa-biotopy/#10/49.3682/18.6386" target="_blank">
         <button style="
             background-color:#2b8a3e;
             color:white;
@@ -203,4 +204,6 @@ with tab4:
     """,
     unsafe_allow_html=True
 )
+    
+
     
