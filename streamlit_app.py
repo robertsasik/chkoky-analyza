@@ -127,7 +127,22 @@ with tab2:
         """
     components.html(iframe_html, height=500, scrolling=False)
        
-    st.markdown(f"[🌍 Otvoriť mapu](https://mapky.github.io/mapa_vl_vztahy/#10/49.3599/18.6529")
+    st.markdown(
+    """
+    <a href="https://mapky.github.io/mapa_vl_vztahy/#10/49.3599/18.6529" target="_blank">
+        <button style="
+            background-color:#2b8a3e;
+            color:white;
+            border:none;
+            padding:10px 20px;
+            border-radius:8px;
+            font-size:16px;
+            cursor:pointer;
+        ">🌍 Otvoriť mapu</button>
+    </a>
+    """,
+    unsafe_allow_html=True
+)
 
 with tab3:
     st.subheader("🗺️ Mapa ekologicko-funkčné plochy")
