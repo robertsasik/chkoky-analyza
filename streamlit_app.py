@@ -176,7 +176,7 @@ with tab3:
     unsafe_allow_html=True
 )
 
-with tab5:
+with tab4:
     st.subheader("🗺️ Biotopy")
 
     # URL k tvojej GitHub Pages mape
