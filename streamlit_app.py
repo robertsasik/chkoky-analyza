@@ -116,7 +116,7 @@ with tab1:
             st.plotly_chart(fig, use_container_width=False)
 
 with tab2:
-    st.subheader("🗺️ Mapa vlastníckych vzťahov")
+    st.subheader("🗺️ Vlastnícke vzťahy")
 
     # URL k tvojej GitHub Pages mape
     map_url = "https://mapky.github.io/mapa_vl_vztahy/#10/49.3599/18.6529"
@@ -146,7 +146,7 @@ with tab2:
 )
 
 with tab3:
-    st.subheader("🗺️ Mapa ekologicko-funkčné plochy")
+    st.subheader("🗺️ Ekologicko-funkčné plochy")
 
     # URL k tvojej GitHub Pages mape
     map_url = "https://mapky.github.io/mapa-efp/#10/49.3682/18.6386"
@@ -176,7 +176,7 @@ with tab3:
 )
 
 with tab4:
-    st.subheader("🗺️ Mapa menežmentové opatrenia")
+    st.subheader("🗺️ Menežmentové opatrenia")
 
     # URL k tvojej GitHub Pages mape
     map_url = "https://mapky.github.io/mapa-menezment/#10/49.3682/18.6386"
