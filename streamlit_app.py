@@ -27,11 +27,12 @@ with row1_col2:
 
 
 
-tab1, tab2, tab3, tab4,  tab5 = st.tabs(["📊 Analýza vlastníckych vzťahov", 
+tab1, tab2, tab3, tab4,  tab5, tab6 = st.tabs(["📊 Analýza vlastníckych vzťahov", 
                                          "🗺️ Vlastnícke vzťahy", 
                                          "🗺️ Ekologicko-funkčné plochy",
                                          "🗺️ Menežmentové opatrenia",
-                                         "🗺️ Biotopy"])
+                                         "🗺️ Biotopy"
+                                         "🗺️ Výskyt živočíšnych druhov"])
 
 with tab1:
     # --- Načítanie dát ---
@@ -234,6 +235,35 @@ with tab5:
     """,
     unsafe_allow_html=True
 )
-    
+
+with tab6:
+    st.subheader("🗺️ Výskyt živočíšnych druhov")
+
+    # URL k tvojej GitHub Pages mape
+    map_url = "https://mapky.github.io/mapa-zoologia/"
+
+    # Vlož mapu ako iframe
+    iframe_html = f"""
+        <iframe src="{map_url}" width="100%" height="500" style="border:none;"></iframe>
+        """
+    components.html(iframe_html, height=500, scrolling=False)
+        #Tlačidlo na otvorenie mapy v novom okne       
+    st.markdown(
+    """
+    <a href="https://mapky.github.io/mapa-zoologia/" target="_blank">
+        <button style="
+            background-color:#2b8a3e;
+            color:white;
+            border:none;
+            padding:10px 20px;
+            border-radius:8px;
+            font-size:16px;
+            cursor:pointer;
+        ">🌍 Otvoriť mapu v novom okne</button>
+    </a>
+    """,
+    unsafe_allow_html=True
+)
+       
 
     
