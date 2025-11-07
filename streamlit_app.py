@@ -8,8 +8,8 @@ import os
 
 # ========================== ZÁKLADNÉ NASTAVENIE STRÁNKY ==========================
 st.set_page_config(
-    page_title="Mapa vlastníckych vzťahov",
-    page_icon="🗺️",
+    page_title="Program starostlivosti CHKOKY",
+    page_icon="data/logo_chkoky1.png",
     initial_sidebar_state="collapsed",
     layout="wide"
 )
@@ -160,7 +160,7 @@ with tab3:
 # ========================== TAB 4 – MENEŽMENTOVÉ OPATRENIA ==========================
 with tab4:
     st.subheader("🗺️ Menežmentové opatrenia")
-    map_url = "https://mapky.github.io/mapa-menezment/#10/49.3682/18.6386"
+    map_url = "https://mapky.github.io/mapa-menezment/"
     components.html(f'<iframe src="{map_url}" width="100%" height="500" style="border:none;"></iframe>', height=500)
     st.markdown(f"""
     <a href="{map_url}" target="_blank">
