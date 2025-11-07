@@ -10,18 +10,47 @@ import os
 st.set_page_config(
     page_title="Program starostlivosti CHKOKY",
     page_icon="data/logo_chkoky1.png",
-    initial_sidebar_state="collapsed",
+    initial_sidebar_state="expanded",
     layout="wide"
 )
 
 
-# ========================== INFO O AUTOROVI (SIDEBAR) ==========================
-st.sidebar.image("data/logo_chkoky.png", use_container_width=True)
-st.sidebar.markdown("### 🌿 Program starostlivosti")
-st.sidebar.markdown("Autor: **Róbert Sásik**")
-st.sidebar.markdown("**Správa CHKO Kysuce**")
-st.sidebar.markdown("U Tomali č. 1511")
-st.sidebar.markdown("022 01 Čadca")
+
+"""
+========================== SIDEBAR – PDF MAPY PODĽA KATEGÓRIÍ ==========================
+Tento blok nahrádza pôvodný TAB 7.
+Vyhľadá v priečinku data/mapy všetky podpriečinky (napr. "biotopy", "vlastnictvo", ...)
+a zobrazí v nich PDF súbory ako stiahnuteľné tlačidlá priamo v sidebare.
+========================================================================================
+"""
+st.sidebar.subheader("📄 PDF mapy podľa kategórií")
+
+base_folder = "data/mapy"
+subfolders = [f for f in os.listdir(base_folder) if os.path.isdir(os.path.join(base_folder, f))]
+
+if not subfolders:
+    st.sidebar.info("V priečinku `data/mapy/` sa nenašli žiadne podpriečinky s mapami.")
+else:
+    selected_folder = st.sidebar.selectbox("Vyber kategóriu máp:", sorted(subfolders))
+    pdf_folder = os.path.join(base_folder, selected_folder)
+    pdf_files = [f for f in os.listdir(pdf_folder) if f.endswith(".pdf")]
+
+    if pdf_files:
+        st.sidebar.markdown(f"### 📚 Mapa kategórie: **{selected_folder.capitalize()}**")
+        for pdf in sorted(pdf_files):
+            file_path = os.path.join(pdf_folder, pdf)
+            file_name = os.path.splitext(pdf)[0]
+            with open(file_path, "rb") as f:
+                st.sidebar.download_button(
+                    label=f"📄 {file_name}",
+                    data=f,
+                    file_name=pdf,
+                    mime="application/pdf"
+                )
+    else:
+        st.sidebar.warning(f"V kategórii **{selected_folder}** sa nenašli žiadne PDF súbory.")
+
+
 
 # ========================== HLAVIČKA STRÁNKY ==========================
 row1_col1, row1_col2 = st.columns([1, 7])
@@ -37,14 +66,13 @@ with row1_col2:
 
 
 # ========================== ZÁLOŽKY (TABS) ==========================
-tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
+tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
     "📊 Analýza vlastníckych vzťahov",
     "🗺️ Vlastnícke vzťahy",
     "🗺️ Ekologicko-funkčné plochy",
     "🗺️ Menežmentové opatrenia",
     "🗺️ Biotopy",
-    "🗺️ Výskyt živočíšnych druhov",
-    "📄 PDF mapy"
+    "🗺️ Výskyt živočíšnych druhov"
 ])
 
 
@@ -172,39 +200,6 @@ with tab6:
         🌍 Otvoriť mapu v novom okne</button>
     </a>
     """, unsafe_allow_html=True)
-
-
-
-# ========================== TAB 7 – PDF MAPY PODĽA KATEGÓRIÍ ==========================
-# Tento blok vyhľadá v priečinku data/mapy podpriečinky (napr. "biotopy", "vlastnictvo", ...)
-# a zobrazí v nich zoznam PDF máp ako stiahnuteľné tlačidlá.
-with tab7:
-    st.subheader("📄 PDF mapy podľa kategórií")
-
-    base_folder = "data/mapy"
-    subfolders = [f for f in os.listdir(base_folder) if os.path.isdir(os.path.join(base_folder, f))]
-
-    if not subfolders:
-        st.info("V priečinku `data/mapy/` sa nenašli žiadne podpriečinky s mapami.")
-    else:
-        selected_folder = st.selectbox("Vyber kategóriu máp:", sorted(subfolders))
-        pdf_folder = os.path.join(base_folder, selected_folder)
-        pdf_files = [f for f in os.listdir(pdf_folder) if f.endswith(".pdf")]
-
-        if pdf_files:
-            st.markdown(f"### 📚 Mapa kategórie: **{selected_folder.capitalize()}**")
-            for pdf in sorted(pdf_files):
-                file_path = os.path.join(pdf_folder, pdf)
-                file_name = os.path.splitext(pdf)[0]
-                with open(file_path, "rb") as f:
-                    st.download_button(
-                        label=f"📄 Otvoriť / stiahnuť: {file_name}",
-                        data=f,
-                        file_name=pdf,
-                        mime="application/pdf"
-                    )
-        else:
-            st.warning(f"V kategórii **{selected_folder}** sa nenašli žiadne PDF súbory.")
 
 
 
