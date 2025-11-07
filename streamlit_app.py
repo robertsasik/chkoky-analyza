@@ -16,7 +16,7 @@ st.set_page_config(
 
 #========================== SIDEBAR – PDF MAPY PODĽA KATEGÓRIÍ ==========================
 
-st.sidebar.subheader("📄 PDF mapy podľa kategórií")
+st.sidebar.subheader("🗺️ PDF mapy")
 
 base_folder = "data/mapy"
 subfolders = [f for f in os.listdir(base_folder) if os.path.isdir(os.path.join(base_folder, f))]
@@ -29,7 +29,7 @@ else:
     pdf_files = [f for f in os.listdir(pdf_folder) if f.endswith(".pdf")]
 
     if pdf_files:
-        st.sidebar.markdown(f"### 📚 Mapa kategórie: **{selected_folder.capitalize()}**")
+        st.sidebar.markdown(f"###📁 Kategórie máp: **{selected_folder.capitalize()}**")
         for pdf in sorted(pdf_files):
             file_path = os.path.join(pdf_folder, pdf)
             file_name = os.path.splitext(pdf)[0]
