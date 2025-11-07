@@ -22,31 +22,6 @@ st.sidebar.markdown("**Správa CHKO Kysuce**")
 st.sidebar.markdown("U Tomali č. 1511")
 st.sidebar.markdown("022 01 Čadca")
 
-# ========================== SKRYTIE LOGA, PROFILU A STREAMLIT MENU ==========================
-# Tento blok CSS kódu skryje profilovú fotku, červenú ikonu „plachetnice“,
-# aj všetky ovládacie prvky Streamlit Cloud (menu, toolbar, footer atď.)
-
-st.markdown("""
-    <style>
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
-
-    /* Skrytie všetkých Streamlit UI prvkov v pravom dolnom rohu */
-    [data-testid="stUserMenu"] {display: none !important;}
-    [data-testid="stStatusWidget"] {display: none !important;}
-    [data-testid="stToolbar"] {display: none !important;}
-    [data-testid="stBaseButton-icon"] {display: none !important;}
-    [data-testid="stActionButtonIcon"] {display: none !important;}
-    [data-testid="stDecoration"] {display: none !important;}
-    [data-testid="stAppHeader"] {display: none !important;}
-    [data-testid="stReportStatus"] {display: none !important;}
-    [data-testid="stDeployButton"] {display: none !important;}
-    [data-testid="stLogo"] {display: none !important;}
-    </style>
-""", unsafe_allow_html=True)
-
-
 # ========================== HLAVIČKA STRÁNKY ==========================
 row1_col1, row1_col2 = st.columns([1, 7])
 
