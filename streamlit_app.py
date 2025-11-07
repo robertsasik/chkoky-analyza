@@ -35,7 +35,7 @@ hide_streamlit_style = """
                 visibility: hidden;
                 height: 0%;
                 }
-                header {
+                #header {
                 visibility: hidden;
                 height: 0%;
                 }
