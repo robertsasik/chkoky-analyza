@@ -14,8 +14,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"  # 👈 sidebar bude otvorený
 )
 
-st.warning("📄 Pozri si kategórie máp v ľavom bočnom paneli (klikni na šípku vľavo hore)!")
-
+#========================== SIDEBAR – PDF MAPY PODĽA KATEGÓRIÍ ==========================
 
 st.sidebar.subheader("📄 PDF mapy podľa kategórií")
 
