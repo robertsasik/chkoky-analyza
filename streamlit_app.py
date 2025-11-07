@@ -29,7 +29,7 @@ else:
     pdf_files = [f for f in os.listdir(pdf_folder) if f.endswith(".pdf")]
 
     if pdf_files:
-        st.sidebar.markdown(f"###📁 Kategórie máp: **{selected_folder.capitalize()}**")
+        st.sidebar.markdown(f"### 📁 Kategórie máp: **{selected_folder.capitalize()}**")
         for pdf in sorted(pdf_files):
             file_path = os.path.join(pdf_folder, pdf)
             file_name = os.path.splitext(pdf)[0]
