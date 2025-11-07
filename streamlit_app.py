@@ -14,6 +14,14 @@ st.set_page_config(
     layout="wide"
 )
 
+# ========================== INFO O AUTOROVI (SIDEBAR) ==========================
+st.sidebar.image("data/logo_chkoky.png", use_container_width=True)
+st.sidebar.markdown("### 🌿 Program starostlivosti")
+st.sidebar.markdown("Autor: **Róbert Sásik**")
+st.sidebar.markdown("**Správa CHKO Kysuce**")
+st.sidebar.markdown("U Tomali č. 1511")
+st.sidebar.markdown("022 01 Čadca")
+
 # ========================== SKRYTIE LOGA, PROFILU A STREAMLIT MENU ==========================
 # Tento blok CSS kódu skryje profilovú fotku, červenú ikonu „plachetnice“,
 # aj všetky ovládacie prvky Streamlit Cloud (menu, toolbar, footer atď.)
@@ -37,15 +45,6 @@ st.markdown("""
     [data-testid="stLogo"] {display: none !important;}
     </style>
 """, unsafe_allow_html=True)
-
-
-# ========================== INFO O AUTOROVI (SIDEBAR) ==========================
-st.sidebar.image("data/logo_chkoky.png", use_container_width=True)
-st.sidebar.markdown("### 🌿 Program starostlivosti")
-st.sidebar.markdown("Autor: **Róbert Sásik**")
-st.sidebar.markdown("**Správa CHKO Kysuce**")
-st.sidebar.markdown("U Tomali č. 1511")
-st.sidebar.markdown("022 01 Čadca")
 
 
 
