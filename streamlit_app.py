@@ -5,6 +5,7 @@ import pandas as pd
 import plotly.express as px
 import os
 
+
 # ========================== ZÁKLADNÉ NASTAVENIE STRÁNKY ==========================
 st.set_page_config(
     page_title="Mapa vlastníckych vzťahov",
@@ -13,17 +14,30 @@ st.set_page_config(
     layout="wide"
 )
 
-# ========================== SKRYTIE LOGA A PROFILU STREAMLIT ==========================
+
+# ========================== SKRYTIE LOGA, PROFILU A STREAMLIT MENU ==========================
+# Tento blok CSS kódu skryje profilovú fotku, červenú ikonu „plachetnice“,
+# aj všetky ovládacie prvky Streamlit Cloud (menu, toolbar, footer atď.)
 st.markdown("""
     <style>
-    /* Skrytie hlavného menu, loga a profilu Streamlit */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
-    [data-testid="stStatusWidget"] {display: none;}
-    [data-testid="stToolbar"] {display: none;}
+
+    /* Skrytie všetkých Streamlit UI prvkov v pravom dolnom rohu */
+    [data-testid="stUserMenu"] {display: none !important;}
+    [data-testid="stStatusWidget"] {display: none !important;}
+    [data-testid="stToolbar"] {display: none !important;}
+    [data-testid="stBaseButton-icon"] {display: none !important;}
+    [data-testid="stActionButtonIcon"] {display: none !important;}
+    [data-testid="stDecoration"] {display: none !important;}
+    [data-testid="stAppHeader"] {display: none !important;}
+    [data-testid="stReportStatus"] {display: none !important;}
+    [data-testid="stDeployButton"] {display: none !important;}
+    [data-testid="stLogo"] {display: none !important;}
     </style>
 """, unsafe_allow_html=True)
+
 
 
 # ========================== INFO O AUTOROVI (SIDEBAR) ==========================
@@ -35,28 +49,31 @@ st.sidebar.markdown("U Tomali č. 1511")
 st.sidebar.markdown("022 01 Čadca")
 
 
-# ========================== HLAVIČKA ==========================
+
+# ========================== HLAVIČKA STRÁNKY ==========================
 row1_col1, row1_col2 = st.columns([1, 7])
 
 with row1_col1:
     image = Image.open("data/logo_chkoky.png")
-    st.image(image, use_container_width=False) 
-    
+    st.image(image, use_container_width=False)
+
 with row1_col2:
     st.write("## Chránená krajinná oblasť Kysuce")
     st.markdown("### Program starostlivosti")
 
 
-# ========================== ZÁLOŽKY ==========================
+
+# ========================== ZÁLOŽKY (TABS) ==========================
 tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
-    "📊 Analýza vlastníckych vzťahov", 
-    "🗺️ Vlastnícke vzťahy", 
+    "📊 Analýza vlastníckych vzťahov",
+    "🗺️ Vlastnícke vzťahy",
     "🗺️ Ekologicko-funkčné plochy",
     "🗺️ Menežmentové opatrenia",
     "🗺️ Biotopy",
     "🗺️ Výskyt živočíšnych druhov",
     "📄 PDF mapy"
 ])
+
 
 
 # ========================== TAB 1 – ANALÝZA VLASTNÍCKYCH VZŤAHOV ==========================
@@ -67,14 +84,15 @@ with tab1:
     st.header("Výmery druhov pozemkov podľa vlastníctva (ha)")
     st.dataframe(df)
 
+    # odstránenie riadku „Celkový súčet“ a doplnenie stĺpca „Súčet“
     df = df[~df.index.str.contains("Celkový", case=False, na=False)]
     df["Súčet"] = df.sum(axis=1)
 
     farby = {
-        "súkromné a bez LV": "#626BFF", 
+        "súkromné a bez LV": "#626BFF",
         "obecné a mestské": "#F4E129",
         "štátne": "#00CE94",
-        "cirkevné": "#88BCE1",  
+        "cirkevné": "#88BCE1",
         "spoločenstvá": "#FEA062",
         "zmiešané": "#F1553C"
     }
@@ -108,6 +126,7 @@ with tab1:
             st.plotly_chart(fig, use_container_width=False)
 
 
+
 # ========================== TAB 2 – VLASTNÍCKE VZŤAHY ==========================
 with tab2:
     st.subheader("🗺️ Vlastnícke vzťahy")
@@ -120,6 +139,7 @@ with tab2:
         🌍 Otvoriť mapu v novom okne</button>
     </a>
     """, unsafe_allow_html=True)
+
 
 
 # ========================== TAB 3 – EKOLOGICKO-FUNKČNÉ PLOCHY ==========================
@@ -136,6 +156,7 @@ with tab3:
     """, unsafe_allow_html=True)
 
 
+
 # ========================== TAB 4 – MENEŽMENTOVÉ OPATRENIA ==========================
 with tab4:
     st.subheader("🗺️ Menežmentové opatrenia")
@@ -148,6 +169,7 @@ with tab4:
         🌍 Otvoriť mapu v novom okne</button>
     </a>
     """, unsafe_allow_html=True)
+
 
 
 # ========================== TAB 5 – BIOTOPY ==========================
@@ -164,6 +186,7 @@ with tab5:
     """, unsafe_allow_html=True)
 
 
+
 # ========================== TAB 6 – VÝSKYT ŽIVOČÍŠNYCH DRUHOV ==========================
 with tab6:
     st.subheader("🗺️ Výskyt živočíšnych druhov")
@@ -178,7 +201,10 @@ with tab6:
     """, unsafe_allow_html=True)
 
 
+
 # ========================== TAB 7 – PDF MAPY PODĽA KATEGÓRIÍ ==========================
+# Tento blok vyhľadá v priečinku data/mapy podpriečinky (napr. "biotopy", "vlastnictvo", ...)
+# a zobrazí v nich zoznam PDF máp ako stiahnuteľné tlačidlá.
 with tab7:
     st.subheader("📄 PDF mapy podľa kategórií")
 
@@ -206,6 +232,7 @@ with tab7:
                     )
         else:
             st.warning(f"V kategórii **{selected_folder}** sa nenašli žiadne PDF súbory.")
+
 
 
 # ========================== PÄTA – INFO O AUTOROVI ==========================
