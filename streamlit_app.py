@@ -17,10 +17,10 @@ st.set_page_config(
 # ========================== SKRYTIE LOGA, PROFILU A STREAMLIT MENU ==========================
 # Tento blok CSS kódu skryje profilovú fotku, červenú ikonu „plachetnice“,
 # aj všetky ovládacie prvky Streamlit Cloud (menu, toolbar, footer atď.)
-"""
+
 st.markdown(
     <style>
-    #MainMenu {visibility: hidden;}
+    MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
 
@@ -37,7 +37,7 @@ st.markdown(
     [data-testid="stLogo"] {display: none !important;}
     </style>
 , unsafe_allow_html=True)
-"""
+
 
 # ========================== INFO O AUTOROVI (SIDEBAR) ==========================
 st.sidebar.image("data/logo_chkoky.png", use_container_width=True)
