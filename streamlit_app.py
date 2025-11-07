@@ -11,7 +11,8 @@ st.set_page_config(
     page_title="Program starostlivosti CHKOKY",
     page_icon="data/logo_chkoky1.png",
     initial_sidebar_state="expanded",
-    layout="wide"
+    layout="wide",
+    initial_sidebar_state="expanded"  # 👈 sidebar bude otvorený
 )
 
 
