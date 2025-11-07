@@ -11,21 +11,16 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
     layout="wide"
 )
-# Skrytie Streamlit loga, profilu a "Hosted by Streamlit" footera
-hide_streamlit_style = """
+# 🔹 Skrytie loga a profilu Streamlitu
+st.markdown("""
     <style>
-    /* Skrytie celej pätičky (Streamlit logo, linky, fotka autora, text "Made with Streamlit") */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
-    footer:after {content:'';}
     header {visibility: hidden;}
-    /* Skrytie bočného menu s profilom na Streamlit Cloud */
-    [data-testid="stAppViewContainer"] > header {display: none;}
     [data-testid="stStatusWidget"] {display: none;}
     [data-testid="stToolbar"] {display: none;}
     </style>
-"""
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
 
 ######################### INFO O AUTOROVI ################################################
