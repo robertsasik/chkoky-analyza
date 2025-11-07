@@ -18,9 +18,9 @@ st.set_page_config(
 # Tento blok CSS kódu skryje profilovú fotku, červenú ikonu „plachetnice“,
 # aj všetky ovládacie prvky Streamlit Cloud (menu, toolbar, footer atď.)
 
-st.markdown(
+st.markdown("""
     <style>
-    MainMenu {visibility: hidden;}
+    #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
 
@@ -36,7 +36,7 @@ st.markdown(
     [data-testid="stDeployButton"] {display: none !important;}
     [data-testid="stLogo"] {display: none !important;}
     </style>
-, unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
 
 # ========================== INFO O AUTOROVI (SIDEBAR) ==========================
