@@ -15,14 +15,6 @@ st.set_page_config(
 )
 
 
-
-"""
-========================== SIDEBAR – PDF MAPY PODĽA KATEGÓRIÍ ==========================
-Tento blok nahrádza pôvodný TAB 7.
-Vyhľadá v priečinku data/mapy všetky podpriečinky (napr. "biotopy", "vlastnictvo", ...)
-a zobrazí v nich PDF súbory ako stiahnuteľné tlačidlá priamo v sidebare.
-========================================================================================
-"""
 st.sidebar.subheader("📄 PDF mapy podľa kategórií")
 
 base_folder = "data/mapy"
