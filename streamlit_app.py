@@ -3,16 +3,39 @@ import streamlit.components.v1 as components
 from PIL import Image
 import pandas as pd
 import plotly.express as px
+import os
 
 st.set_page_config(
     page_title="Mapa vlastníckych vzťahov",
     page_icon="🗺️",
     initial_sidebar_state="collapsed",
     layout="wide"
-    
 )
-######################### dashboard - prvý riadok a dva stĺpce #########################
 
+######################### INFO O AUTOROVI ################################################
+
+# Skrytie pôvodného "About" footeru
+st.markdown("""
+<style>
+footer {visibility: hidden;}
+</style>
+""", unsafe_allow_html=True)
+
+# Nastavenie faviconu a názvu
+st.set_page_config(page_title="Program starostlivosti", page_icon="data/logo_chkoky1.png")
+
+# Sidebar s logom a menom autora
+st.sidebar.image("data/logo_chkoky.png", use_container_width=True)
+st.sidebar.markdown("### 🌿 Program starostlivosti")
+st.sidebar.markdown("Autor: **Róbert Sásik**")
+st.sidebar.markdown("**Správa CHKO Kysuce**")
+st.sidebar.markdown("U Tomali č. 1511")
+st.sidebar.markdown("022 01 Čadca")
+
+######################### KONIEC INFO O AUTOROVI #########################################
+
+
+######################### DASHBOARD – HLAVIČKA ###########################################
 row1_col1, row1_col2 = st.columns([1, 7])
 
 with row1_col1:
@@ -22,18 +45,22 @@ with row1_col1:
 with row1_col2:
     st.write("## Chránená krajinná oblasť Kysuce")
     st.markdown("### Program starostlivosti")
-
-########################### koniec - prvý riadok a dva stĺpce ###########################
-
+######################### KONIEC HLAVIČKY #################################################
 
 
-tab1, tab2, tab3, tab4,  tab5, tab6 = st.tabs(["📊 Analýza vlastníckych vzťahov", 
-                                         "🗺️ Vlastnícke vzťahy", 
-                                         "🗺️ Ekologicko-funkčné plochy",
-                                         "🗺️ Menežmentové opatrenia",
-                                         "🗺️ Biotopy",
-                                         "🗺️ Výskyt živočíšnych druhov"])
+# 🧭 Definícia všetkých tabov
+tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
+    "📊 Analýza vlastníckych vzťahov", 
+    "🗺️ Vlastnícke vzťahy", 
+    "🗺️ Ekologicko-funkčné plochy",
+    "🗺️ Menežmentové opatrenia",
+    "🗺️ Biotopy",
+    "🗺️ Výskyt živočíšnych druhov",
+    "📄 PDF mapy"
+])
 
+
+######################### TAB 1 ###########################################################
 with tab1:
     # --- Načítanie dát ---
     df = pd.read_excel(
@@ -90,10 +117,9 @@ with tab1:
         )
         st.plotly_chart(fig, use_container_width=True)
 
-    # --- Výmery pozemkov podľa vlastníctva (usporiadaný + pevná šírka + zarovnanie na stred) ---
+    # --- Výmery pozemkov podľa vlastníctva ---
     elif typ_grafu == "📊 Výmery pozemkov podľa vlastníctva":
         df_sorted = df.reset_index().sort_values(by="Súčet", ascending=False)
-
         fig = px.bar(
             df_sorted,
             x="Druh vlastníctva",
@@ -103,35 +129,27 @@ with tab1:
             title="Výmery podľa druhu vlastníctva (ha)",
             text_auto=".2f"
         )
-
         fig.update_layout(
             xaxis_title="Druh vlastníctva",
             yaxis_title="Výmera (ha)",
             showlegend=False,
             title_x=0.5,
-            width=800   # pevná šírka grafu
+            width=800
         )
-
-        # 🔹 Zarovnanie na stred pomocou troch stĺpcov
         col1, col2, col3 = st.columns([1, 2, 1])
         with col2:
             st.plotly_chart(fig, use_container_width=False)
 
+
+######################### TAB 2 – VLASTNÍCKE VZŤAHY #######################################
 with tab2:
     st.subheader("🗺️ Vlastnícke vzťahy")
 
-    # URL k tvojej GitHub Pages mape
     map_url = "https://mapky.github.io/mapa_vl_vztahy/#10/49.3682/18.6386"
-
-    # Vlož mapu ako iframe
-    iframe_html = f"""
-        <iframe src="{map_url}" width="100%" height="500" style="border:none;"></iframe>
-        """
+    iframe_html = f"""<iframe src="{map_url}" width="100%" height="500" style="border:none;"></iframe>"""
     components.html(iframe_html, height=500, scrolling=False)
 
-#Tlačidlo na otvorenie mapy v novom okne       
-    st.markdown(
-    """
+    st.markdown("""
     <a href="https://mapky.github.io/mapa_vl_vztahy/#10/49.3682/18.6386" target="_blank">
         <button style="
             background-color:#2b8a3e;
@@ -143,25 +161,18 @@ with tab2:
             cursor:pointer;
         ">🌍 Otvoriť mapu v novom okne</button>
     </a>
-    """,
-    unsafe_allow_html=True
-)
+    """, unsafe_allow_html=True)
 
+
+######################### TAB 3 – EKOLOGICKO-FUNKČNÉ PLOCHY ##############################
 with tab3:
     st.subheader("🗺️ Ekologicko-funkčné plochy")
 
-    # URL k tvojej GitHub Pages mape
     map_url = "https://mapky.github.io/mapa-efp/#10/49.3682/18.6386"
-
-    # Vlož mapu ako iframe
-    iframe_html = f"""
-        <iframe src="{map_url}" width="100%" height="500" style="border:none;"></iframe>
-        """
+    iframe_html = f"""<iframe src="{map_url}" width="100%" height="500" style="border:none;"></iframe>"""
     components.html(iframe_html, height=500, scrolling=False)
 
-    #Tlačidlo na otvorenie mapy v novom okne       
-    st.markdown(
-    """
+    st.markdown("""
     <a href="https://mapky.github.io/mapa-efp/#10/49.3682/18.6386" target="_blank">
         <button style="
             background-color:#2b8a3e;
@@ -173,25 +184,18 @@ with tab3:
             cursor:pointer;
         ">🌍 Otvoriť mapu v novom okne</button>
     </a>
-    """,
-    unsafe_allow_html=True
-)
+    """, unsafe_allow_html=True)
 
+
+######################### TAB 4 – MENEŽMENTOVÉ OPATRENIA ###############################
 with tab4:
     st.subheader("🗺️ Menežmentové opatrenia")
 
-    # URL k tvojej GitHub Pages mape
     map_url = "https://mapky.github.io/mapa-menezment/#10/49.3682/18.6386"
-
-    # Vlož mapu ako iframe
-    iframe_html = f"""
-        <iframe src="{map_url}" width="100%" height="500" style="border:none;"></iframe>
-        """
+    iframe_html = f"""<iframe src="{map_url}" width="100%" height="500" style="border:none;"></iframe>"""
     components.html(iframe_html, height=500, scrolling=False)
 
-    #Tlačidlo na otvorenie mapy v novom okne       
-    st.markdown(
-    """
+    st.markdown("""
     <a href="https://mapky.github.io/mapa-menezment/#10/49.3682/18.6386" target="_blank">
         <button style="
             background-color:#2b8a3e;
@@ -203,24 +207,18 @@ with tab4:
             cursor:pointer;
         ">🌍 Otvoriť mapu v novom okne</button>
     </a>
-    """,
-    unsafe_allow_html=True
-)
+    """, unsafe_allow_html=True)
 
+
+######################### TAB 5 – BIOTOPY ###############################################
 with tab5:
     st.subheader("🗺️ Biotopy")
 
-    # URL k tvojej GitHub Pages mape
     map_url = "https://mapky.github.io/mapa-biotopy/#10/49.3682/18.6386"
-
-    # Vlož mapu ako iframe
-    iframe_html = f"""
-        <iframe src="{map_url}" width="100%" height="500" style="border:none;"></iframe>
-        """
+    iframe_html = f"""<iframe src="{map_url}" width="100%" height="500" style="border:none;"></iframe>"""
     components.html(iframe_html, height=500, scrolling=False)
-        #Tlačidlo na otvorenie mapy v novom okne       
-    st.markdown(
-    """
+
+    st.markdown("""
     <a href="https://mapky.github.io/mapa-biotopy/#10/49.3682/18.6386" target="_blank">
         <button style="
             background-color:#2b8a3e;
@@ -232,24 +230,18 @@ with tab5:
             cursor:pointer;
         ">🌍 Otvoriť mapu v novom okne</button>
     </a>
-    """,
-    unsafe_allow_html=True
-)
+    """, unsafe_allow_html=True)
 
+
+######################### TAB 6 – VÝSKYT ŽIVOČÍŠNYCH DRUHOV #############################
 with tab6:
     st.subheader("🗺️ Výskyt živočíšnych druhov")
 
-    # URL k tvojej GitHub Pages mape
     map_url = "https://mapky.github.io/mapa-zoologia/"
-
-    # Vlož mapu ako iframe
-    iframe_html = f"""
-        <iframe src="{map_url}" width="100%" height="500" style="border:none;"></iframe>
-        """
+    iframe_html = f"""<iframe src="{map_url}" width="100%" height="500" style="border:none;"></iframe>"""
     components.html(iframe_html, height=500, scrolling=False)
-        #Tlačidlo na otvorenie mapy v novom okne       
-    st.markdown(
-    """
+
+    st.markdown("""
     <a href="https://mapky.github.io/mapa-zoologia/" target="_blank">
         <button style="
             background-color:#2b8a3e;
@@ -261,9 +253,57 @@ with tab6:
             cursor:pointer;
         ">🌍 Otvoriť mapu v novom okne</button>
     </a>
-    """,
-    unsafe_allow_html=True
-)
-       
+    """, unsafe_allow_html=True)
 
-    
+
+######################### TAB 7 – PDF MAPY ##############################################
+with tab7:
+    st.subheader("📄 PDF mapy podľa kategórií")
+
+    # 🔹 Cesta k hlavnému priečinku
+    base_folder = "data/mapy"
+
+    # 🔹 Získaj zoznam podpriečinkov (kategórií)
+    subfolders = [f for f in os.listdir(base_folder) if os.path.isdir(os.path.join(base_folder, f))]
+
+    if not subfolders:
+        st.info("V priečinku `data/mapy/` sa nenašli žiadne podpriečinky s mapami.")
+    else:
+        # 🔹 Výber kategórie (podpriečinka)
+        selected_folder = st.selectbox("Vyber kategóriu máp:", sorted(subfolders))
+
+        # 🔹 Cesta ku konkrétnej kategórii
+        pdf_folder = os.path.join(base_folder, selected_folder)
+
+        # 🔹 Načítaj všetky PDF súbory v danej kategórii
+        pdf_files = [f for f in os.listdir(pdf_folder) if f.endswith(".pdf")]
+
+        if pdf_files:
+            st.markdown(f"### 📚 Mapa kategórie: **{selected_folder.capitalize()}**")
+            for pdf in sorted(pdf_files):
+                file_path = os.path.join(pdf_folder, pdf)
+                file_name = os.path.splitext(pdf)[0]
+
+                # 🔹 Tlačidlo na otvorenie alebo stiahnutie PDF
+                with open(file_path, "rb") as f:
+                    st.download_button(
+                        label=f"📄 {file_name}",
+                        data=f,
+                        file_name=pdf,
+                        mime="application/pdf"
+                    )
+        else:
+            st.warning(f"V kategórii **{selected_folder}** sa nenašli žiadne PDF súbory.")
+######################### KONIEC PDF MAP #################################################
+
+
+
+############################# INFO O AUTOROVI – PÄTA ####################################
+st.markdown("""
+<hr>
+<div style='text-align: center'>
+    <b>Autor:</b> 🌿Róbert Sásik<br>
+    <small>© 2025 Štátna ochrana prírody, <br>Chránená krajinná oblasť Kysuce</small>
+</div>
+""", unsafe_allow_html=True)
+############################# KONIEC PÄTY #################################################
