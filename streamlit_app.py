@@ -59,7 +59,7 @@ else:
     else:
         st.sidebar.warning(f"V kategórii **{selected_folder}** sa nenašli žiadne PDF súbory.")
 
-# ========================== 🟩 TIP NA OTVORENIE SIDEBARU ==========================
+# ========================== 🟩 TIP NA OTVORENIE SIDEBARU (AUTOMATICKÉ ZMIZNUTIE) ==========================
 if "show_sidebar_tip" not in st.session_state:
     st.session_state.show_sidebar_tip = True  # zobrazí sa pri prvom načítaní
 
@@ -67,7 +67,17 @@ if st.session_state.show_sidebar_tip:
     col1, col2 = st.columns([8, 1])
     with col1:
         st.markdown("""
-        <div style='background-color:#eef7f1; padding:10px; border-radius:8px; 
+        <style>
+        @keyframes fadeOut {
+            0% {opacity: 1;}
+            80% {opacity: 1;}
+            100% {opacity: 0;}
+        }
+        .sidebar-tip {
+            animation: fadeOut 10s forwards;
+        }
+        </style>
+        <div class='sidebar-tip' style='background-color:#eef7f1; padding:10px; border-radius:8px; 
                     text-align:center; color:#1b4332; font-size:15px; font-weight:500;'>
         💡 <b>Tip:</b> Klikni na dvojitú šípku ⏩ vľavo hore pre otvorenie bočného panela s mapami a súbormi.
         </div>
