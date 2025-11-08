@@ -89,14 +89,14 @@ if st.session_state.show_sidebar_tip:
             animation: fadeOut 10s forwards;
         }
         </style>
-        <div class='sidebar-tip' style='background-color:#eef7f1; padding:10px; border-radius:8px; 
-                    text-align:center; color:#1b4332; font-size:15px; font-weight:500;'>
+        <div class='sidebar-tip' style='background-color:#eef7f1; padding:8px; border-radius:8px; 
+                    text-align:center; color:#1b4332; font-size:10px; font-weight:500;'>
         💡 <b>Tip:</b> Klikni na dvojitú šípku ⏩ vľavo hore pre otvorenie bočného panela s mapami a súbormi.
         </div>
         """, unsafe_allow_html=True)
     #with col2:
         #if st.button("❌ Skryť tip"):
-    st.session_state.show_sidebar_tip = False
+           #st.session_state.show_sidebar_tip = False
 
 # ========================== HLAVNÝ ROLUJÚCI ZOZNAM SEKCIÍ ==========================
 
