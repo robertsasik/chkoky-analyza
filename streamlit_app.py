@@ -14,6 +14,19 @@ st.set_page_config(
     initial_sidebar_state="expanded"  # 👈 sidebar bude otvorený
 )
 
+st.markdown("""
+    <style>
+    /* Scrollovateľné tabs */
+    div[data-baseweb="tab-list"] {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    div[data-baseweb="tab"] {
+        flex: 0 0 auto;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 #========================== SIDEBAR – PDF MAPY PODĽA KATEGÓRIÍ ==========================
 
 st.sidebar.subheader("🗺️ PDF mapy")
