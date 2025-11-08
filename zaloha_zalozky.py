@@ -5,32 +5,17 @@ import pandas as pd
 import plotly.express as px
 import os
 
+
 # ========================== ZÁKLADNÉ NASTAVENIE STRÁNKY ==========================
 st.set_page_config(
     page_title="Program starostlivosti CHKOKY",
     page_icon="data/logo_chkoky1.png",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="expanded"  # 👈 sidebar bude otvorený
 )
 
-# ========================== CSS – ŠTÝLY PRE SCROLLOVATEĽNÝ ZOZNAM ==========================
-st.markdown("""
-<style>
-/* Zoznam na šírku stránky */
-div[data-testid="stSelectbox"] {
-    width: 100% !important;
-}
+#========================== SIDEBAR – PDF MAPY PODĽA KATEGÓRIÍ ==========================
 
-/* Scrollovateľný obsah (ak treba) */
-.stSelectbox [role="listbox"] {
-    max-height: 400px !important;
-    overflow-y: auto !important;
-}
-</style>
-""", unsafe_allow_html=True)
-
-
-# ========================== SIDEBAR – PDF MAPY PODĽA KATEGÓRIÍ ==========================
 st.sidebar.subheader("🗺️ PDF mapy")
 
 base_folder = "data/mapy"
@@ -59,6 +44,7 @@ else:
         st.sidebar.warning(f"V kategórii **{selected_folder}** sa nenašli žiadne PDF súbory.")
 
 
+
 # ========================== HLAVIČKA STRÁNKY ==========================
 row1_col1, row1_col2 = st.columns([1, 7])
 
@@ -71,38 +57,29 @@ with row1_col2:
     st.markdown("### Program starostlivosti")
 
 
-# ========================== HLAVNÝ ROLUJÚCI ZOZNAM SEKCIÍ ==========================
-st.markdown("---")
-st.subheader("🧭 Vyber sekciu:")
 
-sekcia = st.selectbox(
-    "",
-    [
-        "📊 Analýza vlastníckych vzťahov",
-        "🗺️ Vlastnícke vzťahy",
-        "🗺️ Ekologicko-funkčné plochy",
-        "🗺️ Menežmentové opatrenia",
-        "🗺️ Biotopy",
-        "🦉 Výskyt živočíšnych druhov",
-        "🌿 Výskyt rastlinných druhov"
-    ],
-    index=0,
-    key="hlavny_vyber",
-    help="Vyber sekciu, ktorú chceš zobraziť"
-)
+# ========================== ZÁLOŽKY (TABS) ==========================
+tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
+    "📊 Analýza vlastníckych vzťahov",
+    "🗺️ Vlastnícke vzťahy",
+    "🗺️ Ekologicko-funkčné plochy",
+    "🗺️ Menežmentové opatrenia",
+    "🗺️ Biotopy",
+    "🗺️ Výskyt živočíšnych druhov",
+    "🗺️ Výskyt rastlinných druhov"
+])
 
-st.markdown("---")
 
-# ========================== OBSAH PODĽA VÝBERU ==========================
 
-# --- 1. ANALÝZA VLASTNÍCKYCH VZŤAHOV ---
-if sekcia == "📊 Analýza vlastníckych vzťahov":
+# ========================== TAB 1 – ANALÝZA VLASTNÍCKYCH VZŤAHOV ==========================
+with tab1:
     df = pd.read_excel("data/analyza_vlastnictvo_drp2.xlsx", header=0)
     df = df.set_index("Druh vlastníctva")
 
     st.header("Výmery druhov pozemkov podľa vlastníctva (ha)")
     st.dataframe(df)
 
+    # odstránenie riadku „Celkový súčet“ a doplnenie stĺpca „Súčet“
     df = df[~df.index.str.contains("Celkový", case=False, na=False)]
     df["Súčet"] = df.sum(axis=1)
 
@@ -128,8 +105,9 @@ if sekcia == "📊 Analýza vlastníckych vzťahov":
             color=df.index, color_discrete_map=farby, hole=0.4
         )
         fig.update_traces(textposition='inside', textinfo='percent+label')
-        fig.update_layout(showlegend=True, legend_title_text="Druh vlastníctva", title_x=0.5)
+        fig.update_layout(showlegend=True, legend_title_text="Druh vlastníctva", title_x=0.5, width=800)
         st.plotly_chart(fig, use_container_width=True)
+
     else:
         df_sorted = df.reset_index().sort_values(by="Súčet", ascending=False)
         fig = px.bar(
@@ -137,15 +115,18 @@ if sekcia == "📊 Analýza vlastníckych vzťahov":
             color="Druh vlastníctva", color_discrete_map=farby,
             title="Výmery podľa druhu vlastníctva (ha)", text_auto=".2f"
         )
-        fig.update_layout(xaxis_title="Druh vlastníctva", yaxis_title="Výmera (ha)", showlegend=False, title_x=0.5)
-        st.plotly_chart(fig, use_container_width=True)
+        fig.update_layout(xaxis_title="Druh vlastníctva", yaxis_title="Výmera (ha)", showlegend=False, title_x=0.5, width=800)
+        col1, col2, col3 = st.columns([1, 2, 1])
+        with col2:
+            st.plotly_chart(fig, use_container_width=False)
 
 
-# --- 2. VLASTNÍCKE VZŤAHY ---
-elif sekcia == "🗺️ Vlastnícke vzťahy":
+
+# ========================== TAB 2 – VLASTNÍCKE VZŤAHY ==========================
+with tab2:
     st.subheader("🗺️ Vlastnícke vzťahy")
     map_url = "https://mapky.github.io/mapa_vl_vztahy/#10/49.3682/18.6386"
-    components.html(f'<iframe src="{map_url}" width="100%" height="600" style="border:none;"></iframe>', height=600)
+    components.html(f'<iframe src="{map_url}" width="100%" height="500" style="border:none;"></iframe>', height=500)
     st.markdown(f"""
     <a href="{map_url}" target="_blank">
         <button style="background-color:#2b8a3e;color:white;border:none;padding:10px 20px;
@@ -155,11 +136,12 @@ elif sekcia == "🗺️ Vlastnícke vzťahy":
     """, unsafe_allow_html=True)
 
 
-# --- 3. EKOLOGICKO-FUNKČNÉ PLOCHY ---
-elif sekcia == "🗺️ Ekologicko-funkčné plochy":
+
+# ========================== TAB 3 – EKOLOGICKO-FUNKČNÉ PLOCHY ==========================
+with tab3:
     st.subheader("🗺️ Ekologicko-funkčné plochy")
     map_url = "https://mapky.github.io/mapa-efp/#10/49.3682/18.6386"
-    components.html(f'<iframe src="{map_url}" width="100%" height="600" style="border:none;"></iframe>', height=600)
+    components.html(f'<iframe src="{map_url}" width="100%" height="500" style="border:none;"></iframe>', height=500)
     st.markdown(f"""
     <a href="{map_url}" target="_blank">
         <button style="background-color:#2b8a3e;color:white;border:none;padding:10px 20px;
@@ -169,11 +151,12 @@ elif sekcia == "🗺️ Ekologicko-funkčné plochy":
     """, unsafe_allow_html=True)
 
 
-# --- 4. MENEŽMENTOVÉ OPATRENIA ---
-elif sekcia == "🗺️ Menežmentové opatrenia":
+
+# ========================== TAB 4 – MENEŽMENTOVÉ OPATRENIA ==========================
+with tab4:
     st.subheader("🗺️ Menežmentové opatrenia")
     map_url = "https://mapky.github.io/mapa-menezment/"
-    components.html(f'<iframe src="{map_url}" width="100%" height="600" style="border:none;"></iframe>', height=600)
+    components.html(f'<iframe src="{map_url}" width="100%" height="500" style="border:none;"></iframe>', height=500)
     st.markdown(f"""
     <a href="{map_url}" target="_blank">
         <button style="background-color:#2b8a3e;color:white;border:none;padding:10px 20px;
@@ -183,11 +166,12 @@ elif sekcia == "🗺️ Menežmentové opatrenia":
     """, unsafe_allow_html=True)
 
 
-# --- 5. BIOTOPY ---
-elif sekcia == "🗺️ Biotopy":
+
+# ========================== TAB 5 – BIOTOPY ==========================
+with tab5:
     st.subheader("🗺️ Biotopy")
     map_url = "https://mapky.github.io/mapa-biotopy/#10/49.3682/18.6386"
-    components.html(f'<iframe src="{map_url}" width="100%" height="600" style="border:none;"></iframe>', height=600)
+    components.html(f'<iframe src="{map_url}" width="100%" height="500" style="border:none;"></iframe>', height=500)
     st.markdown(f"""
     <a href="{map_url}" target="_blank">
         <button style="background-color:#2b8a3e;color:white;border:none;padding:10px 20px;
@@ -197,11 +181,12 @@ elif sekcia == "🗺️ Biotopy":
     """, unsafe_allow_html=True)
 
 
-# --- 6. ŽIVOČÍŠNE DRUHY ---
-elif sekcia == "🦉 Výskyt živočíšnych druhov":
-    st.subheader("🦉 Výskyt živočíšnych druhov")
+
+# ========================== TAB 6 – VÝSKYT ŽIVOČÍŠNYCH DRUHOV ==========================
+with tab6:
+    st.subheader("🗺️ Výskyt živočíšnych druhov")
     map_url = "https://mapky.github.io/mapa-zoologia/"
-    components.html(f'<iframe src="{map_url}" width="100%" height="600" style="border:none;"></iframe>', height=600)
+    components.html(f'<iframe src="{map_url}" width="100%" height="500" style="border:none;"></iframe>', height=500)
     st.markdown(f"""
     <a href="{map_url}" target="_blank">
         <button style="background-color:#2b8a3e;color:white;border:none;padding:10px 20px;
@@ -210,14 +195,13 @@ elif sekcia == "🦉 Výskyt živočíšnych druhov":
     </a>
     """, unsafe_allow_html=True)
 
-
-# --- 7. RASTLINNÉ DRUHY ---
-elif sekcia == "🌿 Výskyt rastlinných druhov":
-    st.subheader("🌿 Výskyt rastlinných druhov")
-    st.info("Tu môžeš doplniť obsah pre rastlinné druhy.")
+# ========================== TAB 7 – VÝSKYT RASTLINNÝCH DRUHOV ==========================
+with tab7:
+    st.subheader("🗺️ Výskyt rastlinných druhov")
 
 
-# ========================== PÄTA ==========================
+
+# ========================== PÄTA – INFO O AUTOROVI ==========================
 st.markdown("""
 <hr>
 <div style='text-align: center'>
