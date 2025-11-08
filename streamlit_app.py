@@ -70,7 +70,7 @@ with row1_col1:
 with row1_col2:
     st.write("### Chránená krajinná oblasť Kysuce")
     st.write("#### Program starostlivosti")
-
+st.markdown("---")
 # ========================== 🟩 TIP NA OTVORENIE SIDEBARU (AUTOMATICKÉ ZMIZNUTIE) ==========================
 if "show_sidebar_tip" not in st.session_state:
     st.session_state.show_sidebar_tip = True  # zobrazí sa pri prvom načítaní
@@ -99,7 +99,7 @@ if st.session_state.show_sidebar_tip:
             st.session_state.show_sidebar_tip = False
 
 # ========================== HLAVNÝ ROLUJÚCI ZOZNAM SEKCIÍ ==========================
-st.markdown("---")
+
 st.markdown("### 🧭 **Vyber sekciu:**")
 
 sekcia = st.selectbox(
