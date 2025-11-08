@@ -65,7 +65,8 @@ tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
     "🗺️ Ekologicko-funkčné plochy",
     "🗺️ Menežmentové opatrenia",
     "🗺️ Biotopy",
-    "🗺️ Výskyt živočíšnych druhov"
+    "🗺️ Výskyt živočíšnych druhov",
+    "🗺️ Výskyt rastlinných druhov"
 ])
 
 
@@ -193,6 +194,10 @@ with tab6:
         🌍 Otvoriť mapu v novom okne</button>
     </a>
     """, unsafe_allow_html=True)
+
+# ========================== TAB 6 – VÝSKYT ŽIVOČÍŠNYCH DRUHOV ==========================
+with tab7:
+    st.subheader("🗺️ Výskyt rastlinných druhov")
 
 
 
