@@ -68,7 +68,7 @@ with row1_col1:
 
 with row1_col2:
     st.write("### Chránená krajinná oblasť Kysuce")
-    st.markdown("### Program starostlivosti")
+    st.write("#### Program starostlivosti")
 
 
 # ========================== HLAVNÝ ROLUJÚCI ZOZNAM SEKCIÍ ==========================
