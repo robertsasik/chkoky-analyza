@@ -142,7 +142,7 @@ if sekcia == "📊 Analýza vlastníckych vzťahov":
 
 
 # --- 2. VLASTNÍCKE VZŤAHY ---
-elif sekcia == "🗺️ Vlastnícke vzťahy":
+elif sekcia == "🗺️ Mapa - vlastnícke vzťahy":
     st.subheader("🗺️ Vlastnícke vzťahy")
     map_url = "https://mapky.github.io/mapa_vl_vztahy/#10/49.3682/18.6386"
     components.html(f'<iframe src="{map_url}" width="100%" height="600" style="border:none;"></iframe>', height=600)
