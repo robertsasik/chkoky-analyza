@@ -94,8 +94,8 @@ if st.session_state.show_sidebar_tip:
         💡 <b>Tip:</b> Klikni na dvojitú šípku ⏩ vľavo hore pre otvorenie bočného panela s mapami a súbormi.
         </div>
         """, unsafe_allow_html=True)
-    with col2:
-        if st.button("❌ Skryť tip"):
+    #with col2:
+        #if st.button("❌ Skryť tip"):
             st.session_state.show_sidebar_tip = False
 
 # ========================== HLAVNÝ ROLUJÚCI ZOZNAM SEKCIÍ ==========================
