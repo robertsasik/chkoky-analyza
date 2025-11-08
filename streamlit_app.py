@@ -96,7 +96,7 @@ if st.session_state.show_sidebar_tip:
         """, unsafe_allow_html=True)
     #with col2:
         #if st.button("❌ Skryť tip"):
-  st.session_state.show_sidebar_tip = False
+    st.session_state.show_sidebar_tip = False
 
 # ========================== HLAVNÝ ROLUJÚCI ZOZNAM SEKCIÍ ==========================
 
