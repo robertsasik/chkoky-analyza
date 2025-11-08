@@ -10,7 +10,7 @@ st.set_page_config(
     page_title="Program starostlivosti CHKOKY",
     page_icon="data/logo_chkoky1.png",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="collapsed"
 )
 
 # ========================== CSS – ŠTÝLY PRE SCROLLOVATEĽNÝ ZOZNAM ==========================
@@ -28,7 +28,6 @@ div[data-testid="stSelectbox"] {
 }
 </style>
 """, unsafe_allow_html=True)
-
 
 # ========================== SIDEBAR – PDF MAPY PODĽA KATEGÓRIÍ ==========================
 st.sidebar.markdown("**ℹ️ Tip:** Vyber kategóriu mapy pre stiahnutie nižšie.")
