@@ -79,12 +79,12 @@ sekcia = st.selectbox(
     "",
     [
         "📊 Analýza vlastníckych vzťahov",
-        "🗺️ Vlastnícke vzťahy",
-        "🗺️ Ekologicko-funkčné plochy",
-        "🗺️ Menežmentové opatrenia",
-        "🗺️ Biotopy",
-        "🦉 Výskyt živočíšnych druhov",
-        "🌿 Výskyt rastlinných druhov"
+        "🗺️ Mapa - vlastnícke vzťahy",
+        "🗺️ Mapa - ekologicko-funkčné plochy",
+        "🗺️ Mapa - menežmentové opatrenia",
+        "🗺️ Mapa - biotopy",
+        "🦉 Mapa - výskyt živočíšnych druhov",
+        "🌿 Mapa - Výskyt rastlinných druhov"
     ],
     index=0,
     key="hlavny_vyber",
