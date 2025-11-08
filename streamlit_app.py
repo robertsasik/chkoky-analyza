@@ -59,6 +59,18 @@ else:
     else:
         st.sidebar.warning(f"V kategórii **{selected_folder}** sa nenašli žiadne PDF súbory.")
 
+
+# ========================== HLAVIČKA STRÁNKY ==========================
+row1_col1, row1_col2 = st.columns([1, 7])
+
+with row1_col1:
+    image = Image.open("data/logo_chkoky.png")
+    st.image(image, use_container_width=False)
+
+with row1_col2:
+    st.write("### Chránená krajinná oblasť Kysuce")
+    st.write("#### Program starostlivosti")
+
 # ========================== 🟩 TIP NA OTVORENIE SIDEBARU (AUTOMATICKÉ ZMIZNUTIE) ==========================
 if "show_sidebar_tip" not in st.session_state:
     st.session_state.show_sidebar_tip = True  # zobrazí sa pri prvom načítaní
@@ -82,22 +94,9 @@ if st.session_state.show_sidebar_tip:
         💡 <b>Tip:</b> Klikni na dvojitú šípku ⏩ vľavo hore pre otvorenie bočného panela s mapami a súbormi.
         </div>
         """, unsafe_allow_html=True)
-    #with col2:
-        #if st.button("❌ Skryť tip"):
-           #st.session_state.show_sidebar_tip = False
-
-
-# ========================== HLAVIČKA STRÁNKY ==========================
-row1_col1, row1_col2 = st.columns([1, 7])
-
-with row1_col1:
-    image = Image.open("data/logo_chkoky.png")
-    st.image(image, use_container_width=False)
-
-with row1_col2:
-    st.write("### Chránená krajinná oblasť Kysuce")
-    st.write("#### Program starostlivosti")
-
+    with col2:
+        if st.button("❌ Skryť tip"):
+            st.session_state.show_sidebar_tip = False
 
 # ========================== HLAVNÝ ROLUJÚCI ZOZNAM SEKCIÍ ==========================
 st.markdown("---")
