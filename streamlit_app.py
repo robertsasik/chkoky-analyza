@@ -63,7 +63,7 @@ else:
 row1_col1, row1_col2 = st.columns([1, 7])
 
 with row1_col1:
-    image = Image.open("data/logo_chkoky1.png")
+    image = Image.open("data/logo_chkoky.png")
     st.image(image, use_container_width=False)
 
 with row1_col2:
