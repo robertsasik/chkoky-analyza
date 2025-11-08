@@ -13,6 +13,22 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# ========================== CSS – ŠTÝLY PRE SCROLLOVATEĽNÝ ZOZNAM ==========================
+st.markdown("""
+<style>
+/* Zoznam na šírku stránky */
+div[data-testid="stSelectbox"] {
+    width: 100% !important;
+}
+
+/* Scrollovateľný obsah (ak treba) */
+.stSelectbox [role="listbox"] {
+    max-height: 400px !important;
+    overflow-y: auto !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
 # ========================== INFO BOX PRI SKRYTOM SIDEBARI ==========================
 st.markdown("""
 <style>
@@ -40,24 +56,6 @@ div[data-testid="stAppViewContainer"]::before {
 }
 </style>
 """, unsafe_allow_html=True)
-
-
-# ========================== CSS – ŠTÝLY PRE SCROLLOVATEĽNÝ ZOZNAM ==========================
-st.markdown("""
-<style>
-/* Zoznam na šírku stránky */
-div[data-testid="stSelectbox"] {
-    width: 100% !important;
-}
-
-/* Scrollovateľný obsah (ak treba) */
-.stSelectbox [role="listbox"] {
-    max-height: 400px !important;
-    overflow-y: auto !important;
-}
-</style>
-""", unsafe_allow_html=True)
-
 
 # ========================== SIDEBAR – PDF MAPY PODĽA KATEGÓRIÍ ==========================
 st.sidebar.markdown("**ℹ️ Tip:** Vyber kategóriu mapy pre stiahnutie nižšie.")
