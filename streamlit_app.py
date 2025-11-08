@@ -59,7 +59,7 @@ with row1_col2:
 
 
 # ========================== ZÁLOŽKY (TABS) ==========================
-tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
     "📊 Analýza vlastníckych vzťahov",
     "🗺️ Vlastnícke vzťahy",
     "🗺️ Ekologicko-funkčné plochy",
