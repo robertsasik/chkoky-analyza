@@ -67,7 +67,7 @@ with row1_col1:
     st.image(image, use_container_width=False)
 
 with row1_col2:
-    st.write("## Chránená krajinná oblasť Kysuce")
+    st.write("### Chránená krajinná oblasť Kysuce")
     st.markdown("### Program starostlivosti")
 
 
