@@ -83,8 +83,8 @@ if st.session_state.show_sidebar_tip:
         </div>
         """, unsafe_allow_html=True)
     #with col2:
-        if st.button("❌ Skryť tip"):
-            st.session_state.show_sidebar_tip = False
+        #if st.button("❌ Skryť tip"):
+           #st.session_state.show_sidebar_tip = False
 
 
 # ========================== HLAVIČKA STRÁNKY ==========================
