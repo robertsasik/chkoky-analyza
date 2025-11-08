@@ -31,6 +31,7 @@ div[data-testid="stSelectbox"] {
 
 
 # ========================== SIDEBAR – PDF MAPY PODĽA KATEGÓRIÍ ==========================
+st.sidebar.markdown("**ℹ️ Tip:** Vyber kategóriu mapy pre stiahnutie nižšie.")
 st.sidebar.subheader("🗺️ PDF mapy")
 
 base_folder = "data/mapy"
