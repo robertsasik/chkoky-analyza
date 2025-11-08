@@ -156,7 +156,7 @@ elif sekcia == "🗺️ Mapa - vlastnícke vzťahy":
 
 
 # --- 3. EKOLOGICKO-FUNKČNÉ PLOCHY ---
-elif sekcia == "🗺️ Ekologicko-funkčné plochy":
+elif sekcia == "🗺️ Mapa - ekologicko-funkčné plochy":
     st.subheader("🗺️ Ekologicko-funkčné plochy")
     map_url = "https://mapky.github.io/mapa-efp/#10/49.3682/18.6386"
     components.html(f'<iframe src="{map_url}" width="100%" height="600" style="border:none;"></iframe>', height=600)
@@ -170,7 +170,7 @@ elif sekcia == "🗺️ Ekologicko-funkčné plochy":
 
 
 # --- 4. MENEŽMENTOVÉ OPATRENIA ---
-elif sekcia == "🗺️ Menežmentové opatrenia":
+elif sekcia == "🗺️ Mapa - menežmentové opatrenia":
     st.subheader("🗺️ Menežmentové opatrenia")
     map_url = "https://mapky.github.io/mapa-menezment/"
     components.html(f'<iframe src="{map_url}" width="100%" height="600" style="border:none;"></iframe>', height=600)
@@ -184,7 +184,7 @@ elif sekcia == "🗺️ Menežmentové opatrenia":
 
 
 # --- 5. BIOTOPY ---
-elif sekcia == "🗺️ Biotopy":
+elif sekcia == "🗺️ Mapa - biotopy":
     st.subheader("🗺️ Biotopy")
     map_url = "https://mapky.github.io/mapa-biotopy/#10/49.3682/18.6386"
     components.html(f'<iframe src="{map_url}" width="100%" height="600" style="border:none;"></iframe>', height=600)
@@ -198,7 +198,7 @@ elif sekcia == "🗺️ Biotopy":
 
 
 # --- 6. ŽIVOČÍŠNE DRUHY ---
-elif sekcia == "🦉 Výskyt živočíšnych druhov":
+elif sekcia == "🦉 Mapa - výskyt živočíšnych druhov":
     st.subheader("🦉 Výskyt živočíšnych druhov")
     map_url = "https://mapky.github.io/mapa-zoologia/"
     components.html(f'<iframe src="{map_url}" width="100%" height="600" style="border:none;"></iframe>', height=600)
@@ -212,7 +212,7 @@ elif sekcia == "🦉 Výskyt živočíšnych druhov":
 
 
 # --- 7. RASTLINNÉ DRUHY ---
-elif sekcia == "🌿 Výskyt rastlinných druhov":
+elif sekcia == "🌿 Mapa - výskyt rastlinných druhov":
     st.subheader("🌿 Výskyt rastlinných druhov")
     st.info("Tu môžeš doplniť obsah pre rastlinné druhy.")
 
