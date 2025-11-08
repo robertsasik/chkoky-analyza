@@ -195,7 +195,7 @@ with tab6:
     </a>
     """, unsafe_allow_html=True)
 
-# ========================== TAB 6 – VÝSKYT RASTLINNÝCH DRUHOV ==========================
+# ========================== TAB 7 – VÝSKYT RASTLINNÝCH DRUHOV ==========================
 with tab7:
     st.subheader("🗺️ Výskyt rastlinných druhov")
 
