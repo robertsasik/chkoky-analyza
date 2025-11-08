@@ -73,7 +73,7 @@ with row1_col2:
 
 # ========================== HLAVNÝ ROLUJÚCI ZOZNAM SEKCIÍ ==========================
 st.markdown("---")
-st.subheader("🧭 Vyber sekciu:")
+st.markdown("**🧭 Vyber sekciu:")
 
 sekcia = st.selectbox(
     "",
