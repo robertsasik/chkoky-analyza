@@ -13,6 +13,34 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# ========================== INFO BOX PRI SKRYTOM SIDEBARI ==========================
+st.markdown("""
+<style>
+/* Kontajner v ľavom hornom rohu */
+div[data-testid="stAppViewContainer"]::before {
+    content: "💡 Klikni na šípku ⏩ pre otvorenie bočného panela";
+    position: fixed;
+    top: 12px;
+    left: 55px; /* mierne posunuté od šípky */
+    background-color: #eef7f1;
+    color: #1b4332;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    opacity: 0.9;
+    transition: opacity 0.3s;
+    z-index: 9999;
+}
+
+/* Skryť, keď je sidebar otvorený */
+[data-testid="collapsedControl"] button[aria-expanded="true"] + div[data-testid="stAppViewContainer"]::before {
+    display: none;
+}
+</style>
+""", unsafe_allow_html=True)
+
 # ========================== CSS – ŠTÝLY PRE SCROLLOVATEĽNÝ ZOZNAM ==========================
 st.markdown("""
 <style>
