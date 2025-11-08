@@ -70,7 +70,7 @@ if st.session_state.show_sidebar_tip:
         st.markdown("""
         <div style='background-color:#eef7f1; padding:10px; border-radius:8px; 
                     text-align:center; color:#1b4332; font-size:15px; font-weight:500;'>
-        💡 <b>Tip:</b> Klikni na dvojitú šípku ⏩ vľavo hore pre otvorenie bočného panela s mapami a súbormi.
+        💡 <b>Tip:</b> Klikni na dvojitú šípku ⏩ vľavo hore pre otvorenie bočného panela s PDF mapami na stiahnutie.
         </div>
         """, unsafe_allow_html=True)
     with col2:
