@@ -116,9 +116,7 @@ sekcia = st.selectbox(
     key="hlavny_vyber",
     help="Vyberte sekciu, ktorú chcete zobraziť"
 )
-
 st.markdown("---")
-
 
 # ========================== OBSAH PODĽA VÝBERU ==========================
 # --- 1. ANALÝZA VLASTNÍCKYCH VZŤAHOV ---
