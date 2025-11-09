@@ -65,6 +65,7 @@ with row1_col2:
     st.write("#### Program starostlivosti")
 st.markdown("---")
 
+
 # ========================== SIDEBAR – PDF MAPY PODĽA KATEGÓRIÍ ==========================
 
 st.sidebar.subheader("🗺️ PDF mapy")
