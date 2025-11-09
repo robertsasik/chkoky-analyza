@@ -59,7 +59,7 @@ else:
         st.sidebar.warning(f"V kategórii **{selected_folder}** sa nenašli žiadne PDF súbory.")
 
 
-row0 = st.columns([1])
+row0 = st.columns(1)
 
 with row0:
     # ========================== 🟩 TIP NA OTVORENIE SIDEBARU (AUTOMATICKÉ ZMIZNUTIE) ==========================
