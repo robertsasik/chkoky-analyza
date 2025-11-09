@@ -65,6 +65,20 @@ with row1_col2:
     st.write("#### Program starostlivosti")
 st.markdown("---")
 
+st.markdown(
+    """
+    <style>
+    /* Zmena farby šípky sidebaru */
+    button[title="Toggle sidebar"] svg {
+        fill: red;  /* farba šípky */
+        transform: rotate(90deg); /* otočenie šípky */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+
 # ========================== SIDEBAR – PDF MAPY PODĽA KATEGÓRIÍ ==========================
 
 st.sidebar.subheader("🗺️ PDF mapy")
