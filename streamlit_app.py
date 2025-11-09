@@ -59,7 +59,7 @@ else:
         st.sidebar.warning(f"V kategórii **{selected_folder}** sa nenašli žiadne PDF súbory.")
 
 
-# vytvor jeden stĺpec a rozbaľ ho priamo
+# ========================== Stlpec, kde sa nachádza tip na otvorenie Sidebaru ==========================
 col = st.columns(1)[0]
 
 with col:
@@ -89,6 +89,7 @@ with col:
         #with col2:
             #if st.button("❌ Skryť tip"):
             #    st.session_state.show_sidebar_tip = False
+st.text("\n")
 
 
 # ========================== HLAVIČKA STRÁNKY ==========================
