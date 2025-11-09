@@ -114,7 +114,7 @@ sekcia = st.selectbox(
     ],
     index=0,
     key="hlavny_vyber",
-    help="Vyber sekciu, ktorú chceš zobraziť"
+    help="Vyberte sekciu, ktorú chcete zobraziť"
 )
 
 st.markdown("---")
