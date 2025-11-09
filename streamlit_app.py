@@ -59,10 +59,6 @@ else:
         st.sidebar.warning(f"V kategórii **{selected_folder}** sa nenašli žiadne PDF súbory.")
 
 
-# ========================== Stlpec, kde sa nachádza tip na otvorenie Sidebaru ==========================
-col = st.columns(1)[0]
-
-with col:
     # ========================== 🟩 TIP NA OTVORENIE SIDEBARU (AUTOMATICKÉ ZMIZNUTIE) ==========================
     if "show_sidebar_tip" not in st.session_state:
         st.session_state.show_sidebar_tip = True  # zobrazí sa pri prvom načítaní
