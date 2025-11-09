@@ -79,7 +79,7 @@ else:
     pdf_files = [f for f in os.listdir(pdf_folder) if f.endswith(".pdf")]
 
     if pdf_files:
-        st.sidebar.markdown(f"## 📁 Kategória máp:\n **{selected_folder.capitalize()}**")
+        st.sidebar.markdown(f"## 📁 Kategória máp:\n **{selected_folder}**")
         for pdf in sorted(pdf_files):
             file_path = os.path.join(pdf_folder, pdf)
             file_name = os.path.splitext(pdf)[0]
@@ -92,10 +92,6 @@ else:
                 )
     else:
         st.sidebar.warning(f"V kategórii **{selected_folder}** sa nenašli žiadne PDF súbory.")
-
-
-
-
 
 # ========================== HLAVNÝ ROLUJÚCI ZOZNAM SEKCIÍ ==========================
 
