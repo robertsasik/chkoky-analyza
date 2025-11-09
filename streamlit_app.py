@@ -30,24 +30,6 @@ div[data-testid="stSelectbox"] {
 """, unsafe_allow_html=True)
 
 
-
-st.markdown("""
-    <style>
-    #custom-button {
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        padding: 10px;
-        cursor: pointer;
-    }
-    </style>
-    <button id="custom-button" onclick="document.querySelector('section[aria-label=Sidebar]').classList.toggle('hidden')">
-        &#9660; Toggle Sidebar
-    </button>
-""", unsafe_allow_html=True)
-
-
-
 # ========================== 🟩 TIP NA OTVORENIE SIDEBARU (AUTOMATICKÉ ZMIZNUTIE) ==========================
 if "show_sidebar_tip" not in st.session_state:
         st.session_state.show_sidebar_tip = True  # zobrazí sa pri prvom načítaní
