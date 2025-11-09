@@ -29,6 +29,18 @@ div[data-testid="stSelectbox"] {
 </style>
 """, unsafe_allow_html=True)
 
+# ========================== HLAVIČKA STRÁNKY ==========================
+row1_col1, row1_col2 = st.columns([1, 7])
+
+with row1_col1:
+    image = Image.open("data/logo_chkoky.png")
+    st.image(image, use_container_width=False)
+
+with row1_col2:
+    st.write("### Chránená krajinná oblasť Kysuce")
+    st.write("#### Program starostlivosti")
+st.markdown("---")
+
 # ========================== SIDEBAR – PDF MAPY PODĽA KATEGÓRIÍ ==========================
 st.sidebar.markdown("**ℹ️ Tip:** Vyber kategóriu mapy pre stiahnutie nižšie.")
 st.sidebar.subheader("🗺️ PDF mapy")
@@ -59,17 +71,7 @@ else:
         st.sidebar.warning(f"V kategórii **{selected_folder}** sa nenašli žiadne PDF súbory.")
 
 
-# ========================== HLAVIČKA STRÁNKY ==========================
-row1_col1, row1_col2 = st.columns([1, 7])
 
-with row1_col1:
-    image = Image.open("data/logo_chkoky.png")
-    st.image(image, use_container_width=False)
-
-with row1_col2:
-    st.write("### Chránená krajinná oblasť Kysuce")
-    st.write("#### Program starostlivosti")
-st.markdown("---")
 
 
 # ========================== HLAVNÝ ROLUJÚCI ZOZNAM SEKCIÍ ==========================
