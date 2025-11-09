@@ -99,7 +99,7 @@ if st.session_state.show_sidebar_tip:
 
 # ========================== HLAVNÝ ROLUJÚCI ZOZNAM SEKCIÍ ==========================
 
-st.markdown("### 🧭 **Vyber sekciu:**")
+st.markdown("### 🧭 **Vyber sekciu 1:**")
 
 sekcia = st.selectbox(
     "",
