@@ -59,9 +59,10 @@ else:
         st.sidebar.warning(f"V kategórii **{selected_folder}** sa nenašli žiadne PDF súbory.")
 
 
-row0 = st.columns(1)
+# vytvor jeden stĺpec a rozbaľ ho priamo
+col = st.columns(1)[0]
 
-with row0:
+with col:
     # ========================== 🟩 TIP NA OTVORENIE SIDEBARU (AUTOMATICKÉ ZMIZNUTIE) ==========================
     if "show_sidebar_tip" not in st.session_state:
         st.session_state.show_sidebar_tip = True  # zobrazí sa pri prvom načítaní
@@ -87,7 +88,8 @@ with row0:
             """, unsafe_allow_html=True)
         #with col2:
             #if st.button("❌ Skryť tip"):
-            #st.session_state.show_sidebar_tip = False
+            #    st.session_state.show_sidebar_tip = False
+
 
 # ========================== HLAVIČKA STRÁNKY ==========================
 row1_col1, row1_col2 = st.columns([1, 7])
