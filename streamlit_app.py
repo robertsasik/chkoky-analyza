@@ -67,7 +67,7 @@ st.markdown("---")
 # ========================== SIDEBAR – PDF MAPY PODĽA KATEGÓRIÍ ==========================
 
 st.sidebar.subheader("🗺️ PDF mapy")
-st.sidebar.button("🗺️ PDF mapy")
+
 base_folder = "data/mapy"
 subfolders = [f for f in os.listdir(base_folder) if os.path.isdir(os.path.join(base_folder, f))]
 
