@@ -29,14 +29,12 @@ div[data-testid="stSelectbox"] {
 </style>
 """, unsafe_allow_html=True)
 
-    # ========================== 🟩 TIP NA OTVORENIE SIDEBARU (AUTOMATICKÉ ZMIZNUTIE) ==========================
-    if "show_sidebar_tip" not in st.session_state:
+# ========================== 🟩 TIP NA OTVORENIE SIDEBARU (AUTOMATICKÉ ZMIZNUTIE) ==========================
+if "show_sidebar_tip" not in st.session_state:
         st.session_state.show_sidebar_tip = True  # zobrazí sa pri prvom načítaní
 
-    if st.session_state.show_sidebar_tip:
-        col1, col2 = st.columns([8, 1])
-        with col1:
-            st.markdown("""
+if st.session_state.show_sidebar_tip:
+    st.markdown("""
             <style>
             @keyframes fadeOut {
                 0% {opacity: 1;}
@@ -52,9 +50,7 @@ div[data-testid="stSelectbox"] {
             💡 <b>Tip:</b> Klikni na dvojitú šípku ⏩ vľavo hore pre otvorenie bočného panela s mapami a súbormi.
             </div>
             """, unsafe_allow_html=True)
-        #with col2:
-            #if st.button("❌ Skryť tip"):
-            #    st.session_state.show_sidebar_tip = False
+
 
 # ========================== HLAVIČKA STRÁNKY ==========================
 row1_col1, row1_col2 = st.columns([1, 7])
