@@ -89,7 +89,7 @@ with col:
         #with col2:
             #if st.button("❌ Skryť tip"):
             #    st.session_state.show_sidebar_tip = False
-st.text("\n")
+st.markdown("\n")
 
 
 # ========================== HLAVIČKA STRÁNKY ==========================
