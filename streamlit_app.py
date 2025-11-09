@@ -242,6 +242,6 @@ st.markdown("""
 <hr>
 <div style='text-align: center'>
     <b>Autor:</b> 🌿Róbert Sásik<br>
-    <small>© 2025 Štátna ochrana prírody, <br>Chránená krajinná oblasť Kysuce</small>
+    <small>© 2025 Štátna ochrana prírody SR, <br>Chránená krajinná oblasť Kysuce</small>
 </div>
 """, unsafe_allow_html=True)
