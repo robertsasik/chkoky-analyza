@@ -46,8 +46,8 @@ if st.session_state.show_sidebar_tip:
             }
             </style>
             <div class='sidebar-tip' style='background-color:#eef7f1; padding:8px; border-radius:8px; 
-                        text-align:center; color:#1b4332; font-size:12px; font-weight:500;'>
-            💡 <b>Tip:</b> Klikni na dvojitú šípku ⏩ vľavo hore pre otvorenie bočného panela s mapami a súbormi.
+                        text-align:center; color:#1b4332; font-size:14px; font-weight:500;'>
+            💡 <b>Tip:</b> Kliknite na dvojitú šípku ⏩ vľavo hore pre otvorenie bočného panela s PDF mapami.
             </div>
             """, unsafe_allow_html=True)
 st.write("\n")
