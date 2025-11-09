@@ -50,7 +50,7 @@ if st.session_state.show_sidebar_tip:
             💡 <b>Tip:</b> Klikni na dvojitú šípku ⏩ vľavo hore pre otvorenie bočného panela s mapami a súbormi.
             </div>
             """, unsafe_allow_html=True)
-
+st.write("\n")
 
 # ========================== HLAVIČKA STRÁNKY ==========================
 row1_col1, row1_col2 = st.columns([1, 7])
