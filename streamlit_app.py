@@ -76,7 +76,11 @@ subfolders = [f for f in os.listdir(base_folder) if os.path.isdir(os.path.join(b
 if not subfolders:
     st.sidebar.info("V priečinku `data/mapy/` sa nenašli žiadne podpriečinky s mapami.")
 else:
-    selected_folder = st.sidebar.selectbox("Vyber kategóriu máp:", sorted(subfolders))
+    selected_folder = st.sidebar.selectbox(
+    "Vyber kategóriu máp:",
+    sorted(subfolders),
+    help="Vyberte mapy na stiahnutie podľa kategórie"
+)
     pdf_folder = os.path.join(base_folder, selected_folder)
     pdf_files = [f for f in os.listdir(pdf_folder) if f.endswith(".pdf")]
 
