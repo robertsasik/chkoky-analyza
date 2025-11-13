@@ -77,7 +77,7 @@ if not subfolders:
     st.sidebar.info("V priečinku `data/mapy/` sa nenašli žiadne podpriečinky s mapami.")
 else:
     selected_folder = st.sidebar.selectbox(
-    "Vyber kategóriu máp:",
+    f"## Vyberte kategóriu máp:",
     sorted(subfolders),
     help="Vyberte mapy na stiahnutie podľa kategórie"
 )
