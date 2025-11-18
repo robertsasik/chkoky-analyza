@@ -63,7 +63,7 @@ with row1_col1:
 with row1_col2:
     st.write("### Chránená krajinná oblasť Kysuce")
     st.write("#### Program starostlivosti")
-st.markdown("---")
+st.markdown("---") 
 
 
 # ========================== SIDEBAR – PDF MAPY PODĽA KATEGÓRIÍ ==========================
