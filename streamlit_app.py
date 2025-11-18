@@ -109,7 +109,7 @@ sekcia = st.selectbox(
         "📊 Analýza vlastníckych vzťahov",
         "🗺️ Mapa - vlastnícke vzťahy",
         "🗺️ Mapa - ekologicko-funkčné plochy",
-        "🗺️ Mapa - menežmentové opatrenia",
+        "🗺️ Mapa - manažmentové opatrenia",
         "🗺️ Mapa - biotopy",
         "🦉 Mapa - výskyt živočíšnych druhov",
         "🌼 Mapa - výskyt rastlinných druhov"
@@ -195,9 +195,9 @@ elif sekcia == "🗺️ Mapa - ekologicko-funkčné plochy":
     """, unsafe_allow_html=True)
 
 
-# --- 4. MENEŽMENTOVÉ OPATRENIA ---
-elif sekcia == "🗺️ Mapa - menežmentové opatrenia":
-    st.subheader("🗺️ Menežmentové opatrenia")
+# --- 4. MANAŽMENTOVÉ OPATRENIA ---
+elif sekcia == "🗺️ Mapa - manažmentové opatrenia":
+    st.subheader("🗺️ Manažmentové opatrenia")
     map_url = "https://mapky.github.io/mapa-menezment/"
     components.html(f'<iframe src="{map_url}" width="100%" height="600" style="border:none;"></iframe>', height=600)
     st.markdown(f"""
