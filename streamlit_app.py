@@ -112,7 +112,7 @@ sekcia = st.selectbox(
         "🗺️ Mapa - menežmentové opatrenia",
         "🗺️ Mapa - biotopy",
         "🦉 Mapa - výskyt živočíšnych druhov",
-        "🌿 Mapa - Výskyt rastlinných druhov"
+        "🌼 Mapa - výskyt rastlinných druhov"
     ],
     index=0,
     key="hlavny_vyber",
