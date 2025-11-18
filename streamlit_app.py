@@ -63,7 +63,7 @@ with row1_col1:
 with row1_col2:
     st.write("### Chránená krajinná oblasť Kysuce")
     st.write("#### Program starostlivosti")
-st.markdown("---")
+st.markdown("---") 
 
 
 # ========================== SIDEBAR – PDF MAPY PODĽA KATEGÓRIÍ ==========================
@@ -112,7 +112,7 @@ sekcia = st.selectbox(
         "🗺️ Mapa - menežmentové opatrenia",
         "🗺️ Mapa - biotopy",
         "🦉 Mapa - výskyt živočíšnych druhov",
-        "🌿 Mapa - Výskyt rastlinných druhov"
+        "🌼 Mapa - výskyt rastlinných druhov"
     ],
     index=0,
     key="hlavny_vyber",
@@ -238,9 +238,8 @@ elif sekcia == "🦉 Mapa - výskyt živočíšnych druhov":
 
 
 # --- 7. RASTLINNÉ DRUHY ---
-elif sekcia == "🌿 Mapa - výskyt rastlinných druhov":
-    st.subheader("🌿 Výskyt rastlinných druhov")
-    st.info("Tu môžeš doplniť obsah pre rastlinné druhy.")
+elif sekcia == "🌼 Mapa - výskyt rastlinných druhov":
+    st.subheader("🌼 Výskyt rastlinných druhov")
     map_url = "https://mapky.github.io/mapa-botanika/"
     components.html(f'<iframe src="{map_url}" width="100%" height="600" style="border:none;"></iframe>', height=600)
     st.markdown(f"""
@@ -250,7 +249,7 @@ elif sekcia == "🌿 Mapa - výskyt rastlinných druhov":
         🌍 Otvoriť mapu v novom okne</button>
     </a>
     """, unsafe_allow_html=True)
-
+    
 
 # ========================== PÄTA ==========================
 st.markdown("""
