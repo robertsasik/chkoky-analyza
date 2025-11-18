@@ -238,8 +238,8 @@ elif sekcia == "🦉 Mapa - výskyt živočíšnych druhov":
 
 
 # --- 7. RASTLINNÉ DRUHY ---
-elif sekcia == "🌿 Mapa - výskyt rastlinných druhov":
-    st.subheader("🌿 Výskyt rastlinných druhov")
+elif sekcia == "🌼 Mapa - výskyt rastlinných druhov":
+    st.subheader("🌼 Výskyt rastlinných druhov")
     map_url = "https://mapky.github.io/mapa-botanika/"
     components.html(f'<iframe src="{map_url}" width="100%" height="600" style="border:none;"></iframe>', height=600)
     st.markdown(f"""
@@ -248,7 +248,7 @@ elif sekcia == "🌿 Mapa - výskyt rastlinných druhov":
                        border-radius:8px;font-size:16px;cursor:pointer;">
         🌍 Otvoriť mapu v novom okne</button>
     </a>
-    """, unsafe_allow_html=True) 
+    """, unsafe_allow_html=True)
     
 
 # ========================== PÄTA ==========================
