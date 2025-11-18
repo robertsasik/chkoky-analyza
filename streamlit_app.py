@@ -248,7 +248,7 @@ elif sekcia == "🌿 Mapa - výskyt rastlinných druhov":
                        border-radius:8px;font-size:16px;cursor:pointer;">
         🌍 Otvoriť mapu v novom okne</button>
     </a>
-    """, unsafe_allow_html=True)
+    """, unsafe_allow_html=True) 
     
 
 # ========================== PÄTA ==========================
