@@ -108,7 +108,7 @@ sekcia = st.selectbox(
     [
         "📊 Analýza vlastníckych vzťahov",
         "🗺️ Mapa - vlastnícke vzťahy",
-        "🗺️ Mapa - ekologicko-funkčné plochy",
+        "🗺️ Mapa - ekologicko-funkčné priestory",
         "🗺️ Mapa - manažmentové opatrenia",
         "🗺️ Mapa - biotopy",
         "🦉 Mapa - výskyt živočíšnych druhov",
@@ -181,9 +181,9 @@ elif sekcia == "🗺️ Mapa - vlastnícke vzťahy":
     """, unsafe_allow_html=True)
 
 
-# --- 3. EKOLOGICKO-FUNKČNÉ PLOCHY ---
-elif sekcia == "🗺️ Mapa - ekologicko-funkčné plochy":
-    st.subheader("🗺️ Ekologicko-funkčné plochy")
+# --- 3. EKOLOGICKO-FUNKČNÉ PRIESTORY ---
+elif sekcia == "🗺️ Mapa - ekologicko-funkčné priestory":
+    st.subheader("🗺️ Ekologicko-funkčné priestory")
     map_url = "https://mapky.github.io/mapa-efp/#10/49.3682/18.6386"
     components.html(f'<iframe src="{map_url}" width="100%" height="600" style="border:none;"></iframe>', height=600)
     st.markdown(f"""
