@@ -177,12 +177,12 @@ with tab5:
         <iframe 
             src="{map_url}" 
             width="100%" 
-            height="500"
+            height="1000"
             style="border:none; overflow:hidden; display:block;"
             scrolling="no">
         </iframe>
         ''',
-        height=500,
+        height=1000,
         scrolling=False
     )
 
