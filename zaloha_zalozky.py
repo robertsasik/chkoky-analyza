@@ -182,7 +182,7 @@ with tab5:
             scrolling="no">
         </iframe>
         ''',
-        height=600,
+        height=1000,
         scrolling=False
     )
 
