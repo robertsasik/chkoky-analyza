@@ -171,7 +171,7 @@ with tab4:
 with tab5:
     st.subheader("🗺️ Biotopy")
     map_url = "https://mapky.github.io/mapa-biotopy/#10/49.3682/18.6386"
-    components.html(f'<iframe src="{map_url}" width="100%" height="500" style="border:none;"></iframe>', height=500)
+    components.html(f'<iframe src="{map_url}" width="100%" height="600" style="border:none;"></iframe>', height=600)
     st.markdown(f"""
     <a href="{map_url}" target="_blank">
         <button style="background-color:#2b8a3e;color:white;border:none;padding:10px 20px;
