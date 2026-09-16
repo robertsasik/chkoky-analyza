@@ -110,7 +110,7 @@ sekcia = st.selectbox(
         "🗺️ Mapa - vlastnícke vzťahy",
         "🗺️ Mapa - ekologicko-funkčné priestory",
         "🗺️ Mapa - manažmentové opatrenia",
-        "🗺️ Mapa - biotopy v ÚEV",
+        "🗺️ Mapa - biotopy",
         "🦉 Mapa - výskyt živočíšnych druhov",
         "🌼 Mapa - výskyt rastlinných druhov"
     ],
@@ -210,8 +210,8 @@ elif sekcia == "🗺️ Mapa - manažmentové opatrenia":
 
 
 # --- 5. BIOTOPY ---
-elif sekcia == "🗺️ Mapa - biotopy v ÚEV":
-    st.subheader("🗺️ Biotopy v ÚEV")
+elif sekcia == "🗺️ Mapa - biotopy":
+    st.subheader("🗺️ Biotopy")
     map_url = "https://mapky.github.io/mapa-biotopy/#10/49.3682/18.6386"
     components.html(f'<iframe src="{map_url}" width="100%" height="600" style="border:none;"></iframe>', height=600)
     st.markdown(f"""
